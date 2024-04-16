@@ -42,6 +42,7 @@ global with sharing class WebhooksPOC {
          //   detail.Modified_Components__c = hc!=null && hc.modified != null?String.join(hc.modified,','):'';
             insert detail;
             system.debug('@@1--'+detail);
+
             
             response.statuscode = 200;
             response.responseBody = Blob.valueof(JSON.serialize(new SFDCResponse('Success','Proccessed Successfully')));
