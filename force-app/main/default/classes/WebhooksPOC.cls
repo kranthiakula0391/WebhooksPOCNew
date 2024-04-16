@@ -43,7 +43,7 @@ global with sharing class WebhooksPOC {
             insert detail;
             system.debug('@@1--'+detail);
 
-            
+
             response.statuscode = 200;
             response.responseBody = Blob.valueof(JSON.serialize(new SFDCResponse('Success','Proccessed Successfully')));
         }catch(Exception ex){
@@ -73,16 +73,16 @@ global with sharing class WebhooksPOC {
         public string message;
         public string timestamp;
         public string url;
-        public string added;
-        public string removed;
-        public string modified;
-        public head_commit(String message, string timestamp, string url, string added, string modified, string removed){
+   //     public string added;
+   //     public string removed;
+   //     public string modified;
+        public head_commit(String message, string timestamp, string url){
             message = message;
             timestamp = timestamp;
             url = url;
-            added = added;
-            modified = modified;
-            removed = removed;
+         //   added = added;
+         //   modified = modified;
+         //   removed = removed;
         }
     }
 }
