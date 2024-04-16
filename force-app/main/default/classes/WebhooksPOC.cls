@@ -37,9 +37,9 @@ global with sharing class WebhooksPOC {
             detail.Commit_Timestamp__c = ps!=null?hc.timestamp:'';
             detail.Committed_URL__c = ps!=null?hc.url:'';
             detail.Repository_Name__c = repo;
-        //    detail.Added_Components__c = hc!=null && hc.added != null?String.join(hc.added,','):'';
-         //   detail.Removed_Components__c = hc!=null && hc.removed != null?String.join(hc.removed,','):'';
-         //   detail.Modified_Components__c = hc!=null && hc.modified != null?String.join(hc.modified,','):'';
+            detail.Added_Components__c = hc!=null && hc.added != null?String.join(hc.added,','):'';
+            detail.Removed_Components__c = hc!=null && hc.removed != null?String.join(hc.removed,','):'';
+            detail.Modified_Components__c = hc!=null && hc.modified != null?String.join(hc.modified,','):'';
             insert detail;
             system.debug('@@1--'+detail);
 
@@ -73,16 +73,16 @@ global with sharing class WebhooksPOC {
         public string message;
         public string timestamp;
         public string url;
-   //     public string added;
-   //     public string removed;
-   //     public string modified;
-        public head_commit(String message, string timestamp, string url){
+        public List<String> added;
+        public List<String> removed;
+        public List<String> modified;
+        public head_commit(String message, string timestamp, string url, List<String> added, List<String> removed, List<String> modified){
             message = message;
             timestamp = timestamp;
             url = url;
-         //   added = added;
-         //   modified = modified;
-         //   removed = removed;
+            added = added;
+            modified = modified;
+            removed = removed;
         }
     }
 }
