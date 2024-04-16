@@ -41,6 +41,7 @@ global with sharing class WebhooksPOC {
          //   detail.Removed_Components__c = hc!=null && hc.removed != null?String.join(hc.removed,','):'';
          //   detail.Modified_Components__c = hc!=null && hc.modified != null?String.join(hc.modified,','):'';
             insert detail;
+            system.debug('@@1--'+detail);
             response.statuscode = 200;
             response.responseBody = Blob.valueof(JSON.serialize(new SFDCResponse('Success','Proccessed Successfully')));
         }catch(Exception ex){
