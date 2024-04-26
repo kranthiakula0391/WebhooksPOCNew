@@ -28,6 +28,7 @@ global with sharing class WebhooksPOC {
                     parser.nextToken();
                     repo=parser.getText();
                 }
+                
             }
 
             GitHub_Push_Details__c detail = new GitHub_Push_Details__c();
